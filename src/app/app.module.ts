@@ -18,6 +18,7 @@ import {metaReducers, reducers} from './reducers';
 import {MatButtonModule} from '@angular/material/button';
 import {AuthGuard} from './auth/auth.guard';
 import {EffectsModule} from '@ngrx/effects';
+import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
       }
     }),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router',
+      routerState: RouterState.Minimal
+    }),
     EffectsModule.forRoot([])
   ],
   bootstrap: [AppComponent]
