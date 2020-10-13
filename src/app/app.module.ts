@@ -16,11 +16,14 @@ import {environment} from '../environments/environment';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {metaReducers, reducers} from './reducers';
 import {MatButtonModule} from '@angular/material/button';
+import {AuthGuard} from './auth/auth.guard';
+import {EffectsModule} from '@ngrx/effects';
 
 const routes: Routes = [
   {
     path: 'courses',
-    loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
+    loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
@@ -43,6 +46,7 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatListModule,
     MatToolbarModule,
+    MatButtonModule,
     AuthModule.forRoot(),
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -52,7 +56,7 @@ const routes: Routes = [
       }
     }),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
-    MatButtonModule
+    EffectsModule.forRoot([])
   ],
   bootstrap: [AppComponent]
 })
