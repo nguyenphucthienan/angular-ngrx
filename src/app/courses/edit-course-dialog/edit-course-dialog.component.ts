@@ -1,11 +1,9 @@
 import {Component, Inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Update} from '@ngrx/entity';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {AppState} from '../../reducers';
-import {courseUpdated} from '../course.actions';
 import {Course} from '../model/course';
 
 @Component({
@@ -55,17 +53,6 @@ export class EditCourseDialogComponent {
   }
 
   onSave() {
-    const course: Course = {
-      ...this.course,
-      ...this.form.value
-    };
-
-    const update: Update<Course> = {
-      id: course.id,
-      changes: course
-    };
-
-    this.store.dispatch(courseUpdated({update}));
     this.dialogRef.close();
   }
 

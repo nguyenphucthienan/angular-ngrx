@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {EntityDataModule} from '@ngrx/data';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
@@ -63,7 +64,8 @@ const routes: Routes = [
       stateKey: 'router',
       routerState: RouterState.Minimal
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({})
   ],
   bootstrap: [AppComponent]
 })
