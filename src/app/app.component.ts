@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 import {select, Store} from '@ngrx/store';
-import {AppState} from './reducers';
 import {Observable} from 'rxjs';
-import {isLoggedIn, isLoggedOut} from './auth/auth.selectors';
 import {login, logout} from './auth/auth.actions';
+import {isLoggedIn, isLoggedOut} from './auth/auth.selectors';
+import {AppState} from './reducers';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
 
@@ -58,6 +59,7 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.store.dispatch(logout());
+    this.router.navigateByUrl('/');
   }
 
 }

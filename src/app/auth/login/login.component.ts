@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
+import {Store} from '@ngrx/store';
 import {noop} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {Store} from '@ngrx/store';
 import {AppState} from '../../reducers';
 import {login} from '../auth.actions';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
 

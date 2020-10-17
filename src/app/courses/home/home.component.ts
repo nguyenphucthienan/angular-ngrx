@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -10,7 +10,8 @@ import {defaultDialogConfig} from '../shared/default-dialog-config';
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
 

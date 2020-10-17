@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {filter, first, map, tap} from 'rxjs/operators';
+import {filter, first, tap} from 'rxjs/operators';
 import {CourseEntityService} from './services/course-entity.service';
 
 @Injectable()

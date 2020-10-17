@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
 import {delay, map, tap, withLatestFrom} from 'rxjs/operators';
@@ -10,7 +10,8 @@ import {LessonEntityService} from '../services/lesson-entity.service';
 @Component({
   selector: 'course',
   templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css']
+  styleUrls: ['./course.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseComponent implements OnInit {
 

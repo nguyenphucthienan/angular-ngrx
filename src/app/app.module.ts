@@ -1,25 +1,25 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
-import {EntityDataModule} from '@ngrx/data';
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {HttpClientModule} from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
-import {AuthModule} from './auth/auth.module';
+import {EntityDataModule} from '@ngrx/data';
+import {EffectsModule} from '@ngrx/effects';
+import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {metaReducers, reducers} from './reducers';
-import {MatButtonModule} from '@angular/material/button';
+import {AppComponent} from './app.component';
 import {AuthGuard} from './auth/auth.guard';
-import {EffectsModule} from '@ngrx/effects';
-import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
+import {AuthModule} from './auth/auth.module';
+import {metaReducers, reducers} from './reducers';
 
 const routes: Routes = [
   {
